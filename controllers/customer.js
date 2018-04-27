@@ -1,0 +1,1 @@
+const inventory = require('../models/inventory.js')
