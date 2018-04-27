@@ -12,7 +12,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Germzone</a>
+        <a class="navbar-brand" href="/">Germzone</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -30,14 +30,11 @@
                         aria-expanded="false">
                         Departments
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <div id="cats" class="dropdown-menu" aria-labelledby="navbarDropdown">
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">My Cart</a>
+                    <a class="nav-link" href="/cart.html">My Cart</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -47,7 +44,7 @@
         </div>
     </nav>
     <div class="container">
-        <div class="jumbotron-fluid text-center pb-5">
+        <div class="text-center pb-5">
             <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -56,25 +53,26 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="./imgs/slideOne.svg" alt="First slide">
+                        <img class="d-block w-100" src="https://images.pexels.com/photos/459469/pexels-photo-459469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
+                            <h3>Shop our food</h3>
+                            <p>Choose from our fresh selection of foods. </p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./imgs/slideOne.svg" alt="Second slide">
+                        <img class="d-block w-100" src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
+                            <h3>Shop our lastest tech</h3>
+                            <p>Choose the the best selection of tech products on the web.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./imgs/slideOne.svg" alt="Third slide">
+                        <img class="d-block w-100" src="https://images.pexels.com/photos/404171/pexels-photo-404171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
+                            <h3>Check out our latest styles</h3>
+                            <p>Choose from the best clothing selection online.</p>
                         </div>
+    
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -91,31 +89,8 @@
         <div class="headline-wrapper mx-auto text-center mt-5">
             <h2>Shop By Category</h2>
         </div>
-        <div class="row mt-5 justify-content-around">
-            <div class="card col-md-4 p-0">
-                <img class="card-img-top" src="./imgs/slideOne.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card col-md-4 p-0">
-                <img class="card-img-top" src="./imgs/slideOne.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card col-md-4 p-0">
-                <img class="card-img-top" src="./imgs/slideOne.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+        <div id="cat-cards" class="row mt-5 justify-content-around">
+
 
         </div>
     </div>

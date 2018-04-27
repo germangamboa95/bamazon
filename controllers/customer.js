@@ -10,6 +10,14 @@ router.get('/inventory', (req, res) => {
     });
 });
 
+router.get('/inventory/categories',(req, res) => {
+    products.getCategories()
+    .then(result => {
+        res.json(JSON.stringify(result))
+    });
+}); 
+
+
 router.get('/inventory/:id', (req, res) => {
     const id = req.params.id;
     products.getItem(id)
@@ -27,6 +35,7 @@ router.post('/purchase/:id/:qty', (req, res) => {
     });
 
 });
+
 
 
 
