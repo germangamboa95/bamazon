@@ -1,16 +1,19 @@
 const express = require('express');
-const bodyParser = require('body-parser').json(); 
+const bodyParser = require('body-parser');
 const path = require('path');
 const customer = require('./controllers/customer.js');
+const manager = require('./controllers/manager.js');
 const app = express(); 
 
 app.use(express.static('app'))
-
+app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.sendFile('./app/index.html');
 });
 
 app.use('/client/', customer);
+
+app.use('/manager/', manager);
 
 
 //  Error Catcher

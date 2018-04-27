@@ -21,7 +21,7 @@ router.get('/inventory/:id', (req, res) => {
 router.post('/purchase/:id/:qty', (req, res) => {
     const id = req.params.id;
     const qty = req.params.qty;
-    products.updateItemQty(id,qty)
+    products.updateItemQty(id,qty, false)
     .then(result => {
         res.json(JSON.stringify(result));
     });
