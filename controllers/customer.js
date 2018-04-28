@@ -1,7 +1,10 @@
-const inventory = require('../models/inventory.js')
+const inventory = require('../models/inventory.js');
+const transaction = require('../models/transactions.js')
 const router = require('express').Router()
 
-const products = new inventory()
+const products = new inventory();
+const buy = new transaction();
+
 
 router.get('/inventory', (req, res) => {
     products.getInventory()

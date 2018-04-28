@@ -40,11 +40,11 @@ const uiCTRL = (function($) {
             <li class="list-group-item">
                 <div class="row text-center">
                     <div class="img-wrapper col-md-4">
-                        <img class="img-fluid" src="imgs/slideOne.svg" alt="">
+                        <img class="img-fluid" src="${item.product_img_url}" alt="">
                     </div>
                     <div class="col-md-6 desc-wrapper">
                         <h3>${item.product_name}</h3>
-                        <p class="text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio similique eum animi ratione possimus, doloremque commodi dignissimos quis, aliquam nesciunt culpa impedit error vel temporibus.</p>
+                        <p class="text-left">${item.product_description}</p>
                     </div>
                     <div class="price-buy-wrapper col-md-2">
                         <h4>Price</h4>
