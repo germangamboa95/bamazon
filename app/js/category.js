@@ -15,9 +15,21 @@ const dataCTRL = (function() {
     });
   };
 
+  const storeItemsToLocal = (item) => {
+
+    if (localStorage.getItem('cart')) {
+     let itemsArr = JSON.parse(localStorage.getItem('cart'));
+      itemsArr.push(item); 
+      localStorage.setItem('cart', JSON.stringify(itemsArr));
+    } else {
+      localStorage.setItem('cart', JSON.stringify([item]));
+    }
+  }
+
   return {
     initialData: initialData,
-    getCats: getCats
+    getCats: getCats,
+    storeItemsToLocal: storeItemsToLocal
   };
 })();
 
@@ -49,7 +61,9 @@ const uiCTRL = (function($) {
                     <div class="price-buy-wrapper col-md-2">
                         <h4>Price</h4>
                         <p>$${item.price}</p>
-                        <button class="btn btn-outline-success">Add To Cart</button>
+                        <form>
+                        <button type="submit" class="btn btn-outline-primary" value="${item.item_id}">Add To Cart</button>
+                        </form>
                     </div>   
                 </div>
             </li>
@@ -82,4 +96,15 @@ const mainCTRL = (function(dataCTRL, uiCTRL) {
     console.log(data);
     uiCTRL.itemsForSale(data, currentCategory);
   });
+
+  $('#here').on('submit', function(e){ 
+    e.preventDefault();
+    const item = $(e.target[0]).val()
+    console.log(item)
+    $(e.target[0]).prop('disabled', true).attr('class',' btn btn-success').text('Item added!')
+    dataCTRL.storeItemsToLocal(item);
+  });
+  
+
+
 })(dataCTRL, uiCTRL);

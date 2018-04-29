@@ -32,8 +32,11 @@ router.get('/inventory/:id', (req, res) => {
 router.post('/purchase/:id/:qty', (req, res) => {
     const id = req.params.id;
     const qty = req.params.qty;
+    buy.addTransaction('guest', id)
+    .then(res => console.log(res));
     products.updateItemQty(id,qty, false)
     .then(result => {
+        
         res.json(JSON.stringify(result));
     });
 
