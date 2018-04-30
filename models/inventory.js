@@ -37,7 +37,8 @@ class Inventory {
                 product_name: item.name,
                 department_name: item.department, 
                 price: item.price, 
-                stock_quantity: item.stock
+                stock_quantity: item.stock,
+                product_img_url: item.url
             }
         return new Promise((resolve, reject) => {
             this.connection.query("INSERT INTO products SET ?", item_schema, (err, results, fields) => {
