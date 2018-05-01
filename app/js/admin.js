@@ -6,6 +6,29 @@ const dataCTRL = (function() {
           .then(data => resolve(data));
       });
     };
+
+    const addItem = itemData => {
+        return new Promise((resolve, reject) => {
+            return fetch("/manager/inventory/add_item", {
+                method: 'post', 
+                headers: {
+                  'Content-Type': 'application/json'
+                }, 
+                body: JSON.stringify(itemData)
+            })
+              .then(res => resolve(res));
+          });
+    }
+
+    const updateItem = (id, qty) => {
+        return new Promise((resolve, reject) => {
+            return fetch(`/manager/inventory/${id}/${qty}`, {
+                method: 'put'
+            })
+              .then(res => resolve(res));
+          });
+
+    }
   
 
 
@@ -15,6 +38,8 @@ const dataCTRL = (function() {
 
     return {
       initialData: initialData,
+      addItem: addItem,
+      updateItem: updateItem
 
     };
   })();
@@ -119,9 +144,47 @@ const dataCTRL = (function() {
         $('#product-price').val('');
         item.url = $('#product-img').val();
         $('#product-img').val('')
+        item.description = $('#product-desc').val();
+        $('#product-desc').val('');
+
 
         console.log(item);
+        dataCTRL.addItem(item).then(res => {
+            if (res.status === 200) { 
+                $('#add-product').text('Item added succesfully'); 
+                $('#add-product').attr('class', 'btn btn-success my-2'); 
+                setTimeout(function(){
+                    $('#add-product').text('Add product'); 
+                    $('#add-product').attr('class', 'btn btn-primary my-2'); 
+                }, 2000)
+                
+            }
+        });
     })
+
+    $('#add-product-qty').on('click', e => {
+        e.preventDefault(); 
+
+        const item_id = $('#product-id-update').val(); 
+        $('#product-id-update').val(''); 
+        const qty = $('#product-stock-update').val();
+        $('#product-stock-update').val(''); 
+        dataCTRL.updateItem(item_id, qty)
+        .then(res => {
+            if (res.status === 200) { 
+                $('#add-product-qty').text('Item updated succesfully'); 
+                $('#add-product-qty').attr('class', 'btn btn-success my-2'); 
+                setTimeout(function(){
+                    $('#add-product-qty').text('Product qty updated!'); 
+                    $('#add-product-qty').attr('class', 'btn btn-primary my-2'); 
+                }, 2000)
+                
+            }
+        });
+
+    });
+
+
  
 
  
